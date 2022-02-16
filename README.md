@@ -12,7 +12,7 @@ You can start the game with a slash command, and the bot will return the result 
 The Usage for use were filled in when it was unfinished. Operation may differ from actual.
 
 # Author
-Smoothie1023
+Smoothie
 
 # License
 The source code is licensed MIT
