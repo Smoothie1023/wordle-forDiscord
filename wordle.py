@@ -76,9 +76,11 @@ async def answer(
     if(len(Game.correct)==5):
         await ctx.respond('クリア')
         del Game
+        return
     if(Game.time==6):
         await ctx.respond('失敗 答え:'+Game.word)
         del Game
+        return
 
 @bot.slash_command(guild_ids=[guild_id],description="ゲームを中断")
 async def kill(ctx):
