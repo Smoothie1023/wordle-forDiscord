@@ -26,8 +26,6 @@ class wordle:
             for i in range(5):
                 if(w==input[i]):
                     self.exist.append(i)
-        self.correct.sort()
-        self.exist.sort()
 
 @bot.event
 async def on_ready():
@@ -84,6 +82,7 @@ async def answer(
 
 @bot.slash_command(guild_ids=[guild_id],description="ゲームを中断")
 async def kill(ctx):
+    global Game
     try:
         del Game
         await ctx.respond('ゲームを中断しました')
