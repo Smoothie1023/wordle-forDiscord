@@ -1,15 +1,20 @@
 # wordle-forDiscord
-Bot that can play wordle on Discord. 
+WordleをDiscordで遊べるBotです．
 
-# Requirement
+# Requirements
 pycord
 python3
 
 # Usage
-You can start the game with a slash command, and the bot will return the result by typing the slash command plus any five characters.
+/startコマンドを使うとwordlist.txt中の5文字の英単語がランダムに選ばれ初期化処理を行います．
+その後/answer [ans]コマンドでans部分に5文字の英単語を入力しコマンドを使います.
+/startコマンドで選ばれた単語と比較され位置と文字があっていれば緑，文字だけ合っていれば赤で結果をBotが返答します．
+/killコマンドで/startコマンドが実行されていればゲームの中断を行えます．（今後のアップデートでコマンドを実行したユーザーのみ解答できるようにする可能性があるため実装しました．）
+
+ルールは本家と同じです．
 
 # Note
-The Usage for use were filled in when it was unfinished. Operation may differ from actual.
+pycordを用いていますので，環境構築の際には注意してください．discord.pyとはプログラムの書き方が異なっているはずです．
 
 # Author
 Smoothie
