@@ -8,6 +8,10 @@ python3
 
 wordlist.txt(５文字の英単語を改行で区切って入力されたテキストファイル）
 
+guild_id.txt(Botを動作させるサーバーのIDをここに）Atomを使用しているため１行目が改行されている必要があります．
+
+token.txt(Botのトークンをここに）注意点は上に同じ
+
 # Usage
 /startコマンドを使うとwordlist.txt中の5文字の英単語がランダムに選ばれ初期化処理を行います．
 
