@@ -8,13 +8,20 @@ guild_id=open('guild_id.txt','r',encoding='UTF-8').read()[:-1]
 
 class wordle:
     def __init__(self):
-        words=open('wordlist.txt','r',encoding='UTF-8').read().split()
-        select=random.randint(0,len(words)-1)
+        self.words=open('wordlist.txt','r',encoding='UTF-8').read().split()
+        select=random.randint(0,len(self.words)-1)
         self.time=0
-        self.word=words[select]
+        self.word=self.words[select]
         print(self.word)
 
     def input_word(self,input):
+        self.wordcheck=0
+        for i in range(len(self.words)):
+            if (input==self.words[i]):
+                self.wordcheck=1
+        if (self.wordcheck==0):
+            return
+
         self.correct=[]
         self.exist=[]
         #位置文字ともに正解か判定
@@ -58,10 +65,15 @@ async def answer(
     if(len(ans)!=5):
         await ctx.respond('5文字入力してください')
         return
+    Game.input_word(ans)
     try:
         Game.input_word(ans)
     except:
         await ctx.respond('/startをしてゲームを開始してください')
+        return
+    #ワード一覧になかったらエラーを表示
+    if(Game.wordcheck==0):
+        await ctx.respond('ワード一覧に存在しない単語です')
         return
     #input_wordより得た結果をリストに格納
     for exist in Game.exist:styles[exist]=red
