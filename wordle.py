@@ -31,7 +31,8 @@ class wordle:
 async def on_ready():
     print('Raedy...')
 
-@bot.slash_command(guild_ids=[guild_id],description='wordleを開始')
+#@bot.slash_command(guild_ids=[guild_id],description='wordleを開始')
+@bot.slash_command(description='wordleを開始')
 async def start(ctx):
     global Game
     Game=wordle()
@@ -41,7 +42,8 @@ async def start(ctx):
         view.add_item(discord.ui.Button(disabled=True,label=' ',style=discord.ButtonStyle.gray))
     await ctx.respond('ゲームを開始しました',view=view)
 
-@bot.slash_command(guild_ids=[guild_id],description='回答＊要/startコマンド')
+#@bot.slash_command(guild_ids=[guild_id],description='回答＊要/startコマンド')
+@bot.slash_command(description='回答＊要/startコマンド')
 async def answer(
     ctx,
     ans:Option(str,'任意の５文字を入力してください')
@@ -80,7 +82,8 @@ async def answer(
         del Game
         return
 
-@bot.slash_command(guild_ids=[guild_id],description="ゲームを中断")
+#@bot.slash_command(guild_ids=[guild_id],description="ゲームを中断")
+@bot.slash_command(description="ゲームを中断")
 async def kill(ctx):
     global Game
     try:
